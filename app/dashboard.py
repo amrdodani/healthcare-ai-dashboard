@@ -1,5 +1,5 @@
 import streamlit as st
-from app.patient_experience import run as run_patient_experience
+from patient_experience import run as run_patient_experience
 from app.discharge_planner import run as run_discharge_planner
 from app.capacity_manager import run as run_capacity_manager
 from app.strategy_assistant import run as run_strategy_assistant
