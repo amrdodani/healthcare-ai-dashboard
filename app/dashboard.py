@@ -1,33 +1,49 @@
 import streamlit as st
-from app.dashboard import run as run_dashboard
-from modules.patient_experience import run as run_patient_experience
-from modules.discharge_planner import run as run_discharge_planner
-from modules.capacity_manager import run as run_capacity_manager
-from modules.strategy_planner import run as run_strategy_planner
-from modules.task_tracker import run as run_task_tracker
+from app.patient_experience import run as run_patient_experience
+from app.discharge_planner import run as run_discharge_planner
+from app.capacity_manager import run as run_capacity_manager
+from app.strategy_assistant import run as run_strategy_assistant
+from app.task_tracker import run as run_task_tracker
 
-st.set_page_config(page_title="Healthcare Operations AI Command Center", layout="wide")
+def run():
+    st.set_page_config(page_title="Healthcare Operations AI Command Center", layout="wide")
+    st.title("🏥 Healthcare Operations AI Command Center")
 
-st.title("🏥 Healthcare Operations AI Command Center")
+    tabs = st.tabs([
+        "Dashboard Overview",
+        "Patient Experience",
+        "Discharge Planner",
+        "Capacity Manager",
+        "Strategy Assistant",
+        "Task Tracker"
+    ])
 
-menu = st.sidebar.radio("Navigation", [
-    "Dashboard Overview",
-    "Patient Experience",
-    "Discharge Planner",
-    "Capacity Manager",
-    "Strategy Assistant",
-    "Task Tracker"
-])
+    with tabs[0]:
+        st.subheader("📊 Dashboard Overview")
+        st.markdown("""
+        This command center provides AI-powered tools to enhance healthcare operational workflows:
 
-if menu == "Dashboard Overview":
-    run_dashboard()
-elif menu == "Patient Experience":
-    run_patient_experience()
-elif menu == "Discharge Planner":
-    run_discharge_planner()
-elif menu == "Capacity Manager":
-    run_capacity_manager()
-elif menu == "Strategy Assistant":
-    run_strategy_planner()
-elif menu == "Task Tracker":
-    run_task_tracker()
+        - Deep Patient Feedback Analysis  
+        - Smart Discharge Planning  
+        - Capacity Forecasting and Utilization  
+        - Strategic Decision Assistance  
+        - Actionable Task Tracking
+        """)
+
+    with tabs[1]:
+        run_patient_experience()
+
+    with tabs[2]:
+        run_discharge_planner()
+
+    with tabs[3]:
+        run_capacity_manager()
+
+    with tabs[4]:
+        run_strategy_assistant()
+
+    with tabs[5]:
+        run_task_tracker()
+
+if __name__ == "__main__":
+    run()
