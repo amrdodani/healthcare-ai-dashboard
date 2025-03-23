@@ -3,7 +3,8 @@ pandas
 matplotlib
 seaborn
 scikit-learn
+nltk
+spacy
+fpdf
 transformers
-torch
-openpyxl
-openai
+wordcloud
