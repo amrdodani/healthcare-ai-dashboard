@@ -1,8 +1,9 @@
 streamlit
+pandas
 matplotlib
 seaborn
-pandas
 scikit-learn
 transformers
 torch
 openpyxl
+openai
